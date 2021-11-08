@@ -35,28 +35,17 @@
 
 @media (min-width: 768px) {
   #con1 {
-    width: 350px;
-    
+    width: 830px;
   }
 }
 
 @media (min-width: 992px) {
   #con1 {
-    width: 350px;
-  }
-}
-@media (min-width: 768px) {
-  #con2 {
-    width: 550px;
-    
+    width: 830px;
   }
 }
 
-@media (min-width: 992px) {
-  #con2 {
-    width: 550px;
-  }
-}
+
 .obj1{
   text-align: center;
   font-size: 33px;
@@ -86,19 +75,24 @@
   display: block;
   width: 50px;
   height: 1px;
-  margin: 90px auto;
-  border-top: 1px solid #000000;
+  margin: auto;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  border-top: 1px solid #BD8961;
   
 }
 
-
+.login-box{
+  border: 1px solid #2B2821;
+  height: 437px;
+  margin-top: 65px;
+}
 
   .product_bread :hover{
     background: rgba(255, 255, 255, 0.3);
 /* 변형할 것은 배경 1초, 빠른 시작 서서히 감속*/
 transition: background 1s ease-out;
   }
-
 
 .hover-ch{
   color: white;
