@@ -94,6 +94,28 @@
 transition: background 1s ease-out;
   }
 
+.allWrap{
+  border: 1px solid #2B2821;
+}
+  .tab-link{display: inline-block;padding:10px;text-align: center;background-color:#929090;border-radius: 20px;color:#fff;cursor: pointer;
+  }
+  .tab-link.current{
+      background-color: #de4c4c;
+      font-weight: 600;
+  }
+  .tab-content{
+      display: none;
+  }
+  .tab-content.current{
+      display: block;
+      width: 100%;
+      height: 300px;
+      background-color:#d5d8d7;
+      font-size: 30px;
+      text-align: center;
+      line-height: 250px;
+  }
+
 .hover-ch{
   color: white;
 }
