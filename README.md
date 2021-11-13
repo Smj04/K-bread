@@ -12,6 +12,6 @@
 <img src ="https://user-images.githubusercontent.com/79045880/141542479-89e164a2-3f26-4484-b4e7-3351884a9633.png" width="700px" height="350px">
 
 
-### CONTACT
+<!-- ### CONTACT
 - DEVELOPER
-  - MinJeong Seo [s2029@e-mirim.hs.kr], [https://github.com/Smj04]
+  - MinJeong Seo [s2029@e-mirim.hs.kr], [https://github.com/Smj04] -->
