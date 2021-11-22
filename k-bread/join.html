@@ -15,7 +15,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="https://www.k-bread.com/favicon.ico">
 
-    <!--autoload=false 파라미터를 이용하여 자동으로 로딩되는 것을 막습니다.-->
+    <!--autoload=false 파라미터를 이용하여 자동으로 로딩되는 것을 막습니다.
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
 
 <script>
@@ -31,7 +31,7 @@ function execDaumPostcode() {
         }).open();
     });
 }
-</script>
+</script>-->
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light ">
@@ -107,14 +107,16 @@ function execDaumPostcode() {
         
         </ul>
         <ul class="navbar-nav">
-          <a href="#" id="Login"><img src="img/enter.png" alt="" width="20px" style="margin-right: 10px;">Login</a>
-          <a href="#" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Join</a>
+          <a href="login.html" id="Login"><img src="img/enter.png" alt="" width="20px" style="margin-right: 10px;">Login</a>
+          <a href="join.html" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Join</a>
+          <a href="list.php" id="Login"><img src="img/list.png" alt="" width="20px" style="margin-right: 10px;">List</a>
           <a href="#" id="Login"><img src="img/shopping-cart.png" alt="" width="20px" style="margin-right: 10px;">Cart</a>
          </ul> 
-           
+
       </div>
     </div>
   </nav>
+
   <header class="login">
     <div class="container" id="con1" style="margin-top: 150px;">
 
@@ -138,7 +140,7 @@ function execDaumPostcode() {
       <p style="margin-top: 90px; font-family: 'GmarketSansLight';">간단한 <span style="color: #BD8A61; font-family: 'GmarketSansLight';">개인정보</span>를 입력해 주시면, 회원가입이 완료됩니다.</p>
 
       <div class="join-box" >
-      <form action="#">
+      <form action="join.php" method="post">
         <div class="form-group m-form__group row" style="margin-top: 90px; margin-bottom: 90px;">
           <label class="col-md-2 offset-md-3 col-form-label">
             아이디&nbsp;<span class="m--font-orange vertical-middle">*</span>
@@ -154,29 +156,7 @@ function execDaumPostcode() {
             <input type="text" class="form-control m-input m--margin-top-10" name="uname"  />
           </div>
 
-          <label class="col-md-2 offset-md-3 col-form-label">
-            비밀번호&nbsp;<span class="m--font-orange vertical-middle">*</span>
-          </label>
-          <div class="col-md-4">
-            <input type="text" class="form-control m-input m--margin-top-10" name="upass"/>
-          </div>
-          <div class="col-auto">
-            <span id="passwordHelpInline" class="form-text" style="font-size:9px;">
-              4자리의 알파벳, 숫자, 특수문자의 조합으로 만들어주세요.
-            </span>
-          </div>
-
-          <label class="col-md-2 offset-md-3 col-form-label">
-            비밀번호 확인&nbsp;<span class="m--font-orange vertical-middle">*</span>
-          </label>
-          <div class="col-md-4">
-            <input type="text" class="form-control m-input m--margin-top-10" name="upass_chk" />
-          </div>
-          <div class="col-auto">
-            <span id="passwordHelpInline" class="form-text" style="font-size: 11px;">
-              비밀번호를 한번 더 입력해주세요.
-            </span>
-          </div>
+        
 
           <label class="col-md-2 offset-md-3 col-form-label">
             휴대전화번호&nbsp;<span class="m--font-orange vertical-middle">*</span>
@@ -184,29 +164,55 @@ function execDaumPostcode() {
           <div class="col-md-4">
             <input type="text" class="form-control m-input m--margin-top-10" name="uphone" />
           </div>
-          
+
           <label class="col-md-2 offset-md-3 col-form-label">
+            비밀번호&nbsp;<span class="m--font-orange vertical-middle">*</span>
+          </label>
+          <div class="col-md-4">
+            <input type="password" class="form-control m-input m--margin-top-10" name="upass"/>
+          </div>
+          <div class="col-auto">
+            <span id="passwordHelpInline" class="form-text" style="font-size:9px;">
+              4자리의 알파벳, 숫자, 특수문자의 조합으로 만들어주세요.
+            </span>
+          </div>
+
+          <!-- <label class="col-md-2 offset-md-3 col-form-label">
+            비밀번호 확인&nbsp;<span class="m--font-orange vertical-middle">*</span>
+          </label>
+          <div class="col-md-4">
+            <input type="password" class="form-control m-input m--margin-top-10" name="upasschk" />
+          </div>
+          <div class="col-auto">
+            <span id="passwordHelpInline" class="form-text" style="font-size: 11px;">
+              비밀번호를 한번 더 입력해주세요.
+            </span>
+          </div> -->
+
+         
+          
+          <!-- <label class="col-md-2 offset-md-3 col-form-label">
             주소&nbsp;<span class="m--font-orange vertical-middle">*</span>
           </label>
           <div class="col-md-2">
-            <input type="text" class="form-control m-input" name="postcode" id="postcode"  /> <!--readonly-->
+            <input type="text" class="form-control m-input" name="postcode" id="postcode"  /> <!--readonly
           </div>
           <div class="col-md-2 postcode-btn">
-            <!--<button type="button" class="btn btn-info m-btn--air" onclick="execDaumPostcode()">우편번호 검색</button>-->
+            <button type="button" class="btn btn-info m-btn--air" onclick="execDaumPostcode()">우편번호 검색</button>
             <button type="button" style="background-color: #BD8A61; color: #FFFFFF; text-decoration: none; padding: 5px 30px; font-size: 16px; font-family: 'GmarketSansLight';"  onclick="execDaumPostcode()" >우편번호 검색</button>
           </div>
           <div class="col-md-4 offset-md-5">
-            <input type="text" class="form-control m-input m--margin-top-10" name="address" id="address" /> <!--readonly-->
-          </div>
+            <input type="text" class="form-control m-input m--margin-top-10" name="address" id="address" /> readonly
+          </div> -->
           
         </div>
 
-      </form>
-        </div>
+      
+      </div>
         <div class="text-center" style="margin-top: 30px;">
-        <a href="#" style="background-color: #BD8A61; color: #FFFFFF; text-decoration: none; padding: 12px 35px; font-size: 16px; font-family: 'GmarketSansLight';"  onclick = "location.href = '#'">신규회원가입</a>
+        <button type ="submit" style="background-color: #BD8A61; color: #FFFFFF; text-decoration: none; padding: 12px 35px; font-size: 16px; font-family: 'GmarketSansLight';">신규회원가입</button>
         </div>
-
+</form>
 
       </div>
       

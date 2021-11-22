@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>김영모 과자점</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-
-    <link rel="stylesheet" href="css/login.css">
-    <script src="./js/loginTab.js" defer></script>
-
+<link rel="stylesheet" href="css/list.css">
     <link rel="shortcut icon" type="image/x-icon" href="https://www.k-bread.com/favicon.ico">
-</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html"><img src="https://www.k-bread.com/_skin/sw_kor_1/img/common/logo_on.png" alt="" width="170px"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,83 +85,61 @@
       </div>
     </div>
   </nav>
+  <h1 class="title-list text-center">회원 목록</h1>
+<style>
   
-  <header class="login">
-    <div class="container" id="con1" style="margin-top: 150px;">
+</style>
+<?php
 
-     <div class="row" >
-       <p style="text-align: center;">
-       <h2 class="obj1" id="s1">ACCOUNT</span></p>
-       <span class="obj2" id="s1">대를 이어가는 명장家 김영모과자점</span>
-     
-     <!-- <strong style="text-align: center;">
-       <img src="https://www.k-bread.com/_skin/sw_kor_1/img/main/txt_main1.png" alt="" width="260px" >
-     </strong> -->
-       </div>
-   
-     </div>
-   </header>
+$url = 'localhost';
+$id = 'test'; 
+$pass = '1111';
+$db = 'testdb';
+$conn = mysqli_connect($url,$id,$pass,$db);
 
-   <section class="login-container">
-    <div class="container">
-      <div class="line"></div>
-      <h3 class="sub-title">LOGIN</h3>
-    </div>
 
-    <div class="container log-con" id="con1">   <!--부트스트렙 컨테이너-->
+//if($conn) echo "연결 성공!";
+//else echo "연결 실패";
+$sql = "select * from kbread"; //똑같이 2차원배열로 reslut로 들감
+$result = mysqli_query($conn, $sql);
+$count = mysqli_num_rows($result);
+// 한줄씩 갖고오기 리턴값이 있으므로 변수에 저장
 
-    <!-- <div class="allWrap"> -->
-          <div class="row">
-            <div class="col tab-link current" data-tab="tab-1" style="font-family: 'GmarketSansLight';"><span>회원 로그인</span></div>
-           <div class="col tab-link" data-tab="tab-2" style="font-family: 'GmarketSansLight';"><span>비회원(주문조회)</span></div>
-          </div>
-          
-          <div class="row">
-            <div class="col tab-content current" id="tab-1">
-              <form action="login.php" method="post" style="margin-top: 90px;">
-                <table class="table">
-              <tr>
-                <td><input class="form-control" type="text" name="uid" placeholder="아이디"></td>
-                <td rowspan="2">
-                  <button type="submit" style="padding: 43px 0px; background-color: #514547; color: #FFFFFF; width: 70%; font-family: 'GmarketSansLight';">로그인</button>
-                </td>
-              </tr>
-              <tr>
-                <td><input class="form-control" type="password" name="upass" placeholder="비밀번호"></td>
-              </tr>
-              </table>
-            </form>
 
+for($i = 0; $i<$count ; $i++){
+  $re = mysqli_fetch_row($result);
+?>
+<table class="table text-center">
+  <thead>
+<tr>
+ <th class="title">#</th>
+ <th class="title">아이디</th>
+ <th class="title">이름</th>
+ <th class="title">전화번호</th>
+ <th class="title">비밀번호</th>
+ <th class="title">비고</tr>  
+<tr>
+  <td><?php echo"$re[0]" ?></td>
+  <td><?php echo "$re[1]" ?></td>
+  <td><?php echo "$re[2]" ?></td>
+  <td><?php echo "$re[3]" ?></td>
+  <td><?php echo $re[4]?></td>
+  
+  <td><a class ="update" href='updatepass.php?idx=<?php echo "$re[0]"?>'>수정</a>
+      <a class ="delete" href='deleteform.php?idx=<?php echo "$re[0]"?>'>삭제</a></td>
+</tr>     
+</thead>
+<?php
+}
+?>          
+</table>
+<div class="container">
+            <div class="row">
+        <button type="submit" class="sub-btn"  onclick = "location.href = 'join.html'">회원가입</button>
             </div>
-
-            <div class="col tab-content" id="tab-2">  <!--두번째 비회원텝-->
-            <!--준비중-->
-            </div>
-          </div>
-
-        <!-- <div  id="tab-1" class="tab-content current">contents01</div>
-        <div  id="tab-2" class="tab-content">contents02</div> -->
-        <!-- </div> -->
-
         </div>
-      
-   </section>
 
-
-<div class="container" id="con1" style="margin-top: 20px;" >
-  <div class="join-btn-box">
-    <strong style="color: #222222; font-size: 18px; font-family: 'GmarketSansLight';">아직 회원이 아니세요?</strong>
-    <p style="font-size: 14px; font-family: 'GmarketSansLight';">회원이 되시면 할인쿠폰, 이벤트 참여 등 다양한 혜택을 누리실 수 있습니다.</p>
-    <a href="#" style="background-color: #BD8A61; color: #FFFFFF; text-decoration: none; padding: 15px 35px; font-size: 16px; font-family: 'GmarketSansLight';"  onclick = "location.href = 'join.html'">신규회원가입</a>
-  
-  </div>
-</div>
-
-
-
-
-
-   <div style="background-color: #2F2B29; margin-top: 100px;  text-align: center;">
+        <div style="background-color: #2F2B29; margin-top: 100px;  text-align: center;">
     <img src="https://www.k-bread.com/_skin/sw_kor_1/img/common/footer_logo.gif" alt="">
   <ul>
     <li class="footer-li"><a href="#" style="color: white; text-decoration: none;">이용약관</a></li> |
@@ -210,8 +174,3 @@
     
   </address>
   </div> 
-
-  
-
-</body>
-</html>
