@@ -1,6 +1,6 @@
 # K-bread 🍞
 >  다양한 빵들을 판매하고 로그인&회원가입을 통해 장바구니에 담을 수 있는 웹 쇼핑몰 `(미완)`<br>
->  [https://seoshop.emirim.kr](https://seoshop.emirim.kr).
+>  [demo](https://seoshop.emirim.kr)
 
 ### BULT WITH
 - <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
