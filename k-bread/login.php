@@ -1,6 +1,8 @@
 <?php
-$idx = $_POST['idx'];
+
+$uid = $_POST['uid'];
 $upass = $_POST['upass'];
+
 
 $url='localhost';
 $id='test';
@@ -8,33 +10,40 @@ $pass='1111';
 $db='testdb';
 $conn=mysqli_connect($url,$id,$pass,$db);
 
-$sql = "select * from kbread where upass = $idx";
+$sql = "select * from kbread where upass = '{$upass}'";
 $result=mysqli_query($conn,$sql);
-//$count=mysqli_num_rows($result);
+$count = mysqli_num_rows($result);
 
-//for($i=0; $i<$count; $i++){
-    //$re=mysqli_fetch_row($result);
-    //echo "idx : ".$idx."<br>";
-    echo "upass : ".$upass."<br>";
-    if($upass!=$idx){   //$re[4]랑 비교?
-        echo"<script>alert('비밀번호 불일치'); </script>";
-        
-    }
-    else{
-      echo "<script>alert('로그인 성공!');</script>";
-      ?>
 
-<!-- if//($upass != $idx){
-    echo "<script>alert('비밀번호가 일치하지 않습니다');history.go(-1)</script>";
- 
-else //{
-  echo "<script>alert('로그인 성공!');</script>";
--->
-<!-- ?> -->
 
-  <meta http-equiv="refresh" content="1;index.html"> 
+for($i=0; $i<$count; $i++){
+ $re=mysqli_fetch_row($result);
+
+
+
+if ($re[1] === $uid && $re[4] === $upass) {
+    // 로그인 성공
+    // 세션에 id 저장
+    // session_start();
+    // $_SESSION['userId'];
+    // print_r($_SESSION);
+    // echo $_SESSION['userId'];
+    
+?>
+    <script>
+        alert("로그인에 성공하였습니다.")
+        location.href = "index.php";
+    </script>
 
 <?php
-    }
-  //}
+} else {
+    // 로그인 실패 
+?>
+    <script>
+        alert("로그인에 실패하였습니다.")
+        location.href = "loginform.php";
+    </script>
+<?php
+}
+}
 ?>

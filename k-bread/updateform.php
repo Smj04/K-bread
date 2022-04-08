@@ -19,16 +19,24 @@ $re = mysqli_fetch_row($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <style>
-        @font-face {
-    font-family: 'MaruBuri-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+  
+@font-face {
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
-        *{
+    
+    }
+    @font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    *{
             text-align: center;
             margin: 20px auto;
-            font-family: 'MaruBuri-Regular';
+            font-family: 'GmarketSansLight';
         }
         table{
             text-align: center;
@@ -47,7 +55,7 @@ $re = mysqli_fetch_row($result);
 </head>
     <body>
     
-        <h1 style="color:orange">수정</h1>
+        <h1 style="font-family: 'KOTRA_BOLD-Bold';color:BD8A61">수정</h1>
         <form method="POST" action="update.php">
             <table>
                 <tr>  
@@ -66,7 +74,7 @@ $re = mysqli_fetch_row($result);
                     <td>비밀번호 : <input type="text" name="upass" value="<?php echo $re[4]?>"></td>
                 </tr>
                 <tr>
-                <td><button type="submit" style="border: 0; color: black; background-color: orange; border-radius: 30px;" >입력완료</button></td>
+                <td><button type="submit" style="border: 0; color: white; background-color: #BD8A61; border-radius: 30px;" >입력완료</button></td>
                 </tr>
                 <tr>
                 

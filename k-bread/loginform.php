@@ -143,7 +143,8 @@
               </tr>
               <tr>
                 <td><input class="form-control" type="password" name="upass" placeholder="비밀번호"></td>
-                <!-- <input type="hidden" name="idx" value="<//?php echo $idx ?>" > -->
+                
+              
               </tr>
               </table>
             </form>

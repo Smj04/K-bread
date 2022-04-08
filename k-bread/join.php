@@ -23,10 +23,10 @@ $sql = "insert into kbread(uid,uname,uphone,upass) values('$uid', '$uname','$uph
    echo "<script>데이터가 성공적으로 추가되었습니다!</script>";
    
    mysqli_close($conn);
-   echo $uid."<br>";
-  echo $uname."<br>";
-  echo $uphone."<br>";
-  echo $upass."<br>";
+  //  echo $uid."<br>";
+  // echo $uname."<br>";
+  // echo $uphone."<br>";
+  // echo $upass."<br>";
    
 ?>
 <meta http-equiv="refresh" content="0; url=list.php">
